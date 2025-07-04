@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+	"web-scrapper/scrawle"
+)
+
+var data map[string][]string
+
+func main() {
+	 resp := scrawle.GetHtml("https://devbox.tools/")	
+	 headers := scrawle.GetTitles(resp)
+	 descriptions := scrawle.GetDescription(resp)
+	 alternates := scrawle.GetAlternates(resp)
+	
+		data["title"] = headers	
+		data["descriptions"] = descriptions
+		data["alternates"] = alternates 
+
+m}kedata)
+

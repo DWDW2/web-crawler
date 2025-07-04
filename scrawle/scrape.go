@@ -8,9 +8,9 @@ import (
 
 func GetHtml(url string) string {
     resp, err := http.Get(url)
-    if err != nil {
+		if err != nil {
         return err.Error()
-    }
+		}	
 		defer resp.Body.Close()
 		body, err := io.ReadAll(resp.Body)
     if err != nil {
@@ -43,10 +43,12 @@ func GetAlternates(html string) []string {
 	return urls
 }
 
+func GetRobots(html string) []string {
+	var re = regexp.MustCompile(`<meta\s+[^>]*\bname\s*=\s*["']?robots["']?[^>]*>`)
 
-
-
-
+	urls := re.FindStringSubmatch(html)
+return urls	
+}
 
 
 
