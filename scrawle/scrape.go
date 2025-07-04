@@ -47,8 +47,14 @@ func GetRobots(html string) []string {
 	var re = regexp.MustCompile(`<meta\s+[^>]*\bname\s*=\s*["']?robots["']?[^>]*>`)
 
 	urls := re.FindStringSubmatch(html)
-return urls	
+	return urls	
 }
 
 
+func GetKeyWords(html string) []string {
+	var re = regexp.MustCompile(`<meta\s+[^>]*\bcontent\s*=\s*["']*>`)
+
+	var keywords = re.FindStringSubmatch(html)
+	return keywords
+}
 

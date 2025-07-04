@@ -17,11 +17,13 @@ func main() {
 	 descriptions := scrawle.GetDescription(resp)
 	 alternates := scrawle.GetAlternates(resp)
 	 robots := scrawle.GetRobots(resp)
-		
+	 keywords := scrawle.GetKeyWords(resp) 
+
 	 data["title"] = headers
 	 data["descriptions"] = descriptions
 	 data["alternates"] = alternates
 	 data["robots"] = robots 
+	 data["keywords"] = keywords
 
 	 endTime := time.Since(currentTime)
 	 fmt.Println(endTime)
